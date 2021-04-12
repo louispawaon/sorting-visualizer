@@ -39,6 +39,11 @@ public int min = 0;
         cmbSortingAlgo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         btnSort.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnSort.setText("SORT");
@@ -112,6 +117,7 @@ public int min = 0;
             sortarray[i]=random;
         }
     }
+    
     private void btnSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSortActionPerformed
@@ -121,12 +127,18 @@ public int min = 0;
         for (int i=0;i<sortarray.length;i++){
              System.out.println(sortarray[i]);
         }
+       
     }//GEN-LAST:event_btnGenerateActionPerformed
-    
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+   
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+         graphicsArray xyz = new graphicsArray();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -154,8 +166,10 @@ public int min = 0;
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new mainpanel().setVisible(true);
+               
             }
         });
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -164,4 +178,5 @@ public int min = 0;
     private javax.swing.JComboBox<String> cmbSortingAlgo;
     private javax.swing.JPanel panelSort;
     // End of variables declaration//GEN-END:variables
+
 }
