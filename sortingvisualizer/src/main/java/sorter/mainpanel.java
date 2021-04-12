@@ -4,13 +4,19 @@
  * and open the template in the editor.
  */
 package sorter;
-
+import java.util.*;
+import java.awt.*;
+import java.math.*;
 /**
  *
  * @author tremor
  */
-public class mainpanel extends javax.swing.JFrame {
 
+public class mainpanel extends javax.swing.JFrame {
+public int sortarray[] = new int[50];
+public int random;
+public int max = sortarray.length+1;
+public int min = 0;
     /**
      * Creates new form mainpanel
      */
@@ -98,15 +104,25 @@ public class mainpanel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //Generate Array 
+    public void generate(){
 
+        for (int i=0; i<sortarray.length;i++){
+            random = (int) Math.floor(Math.random()*(max-min+1)+min);
+            sortarray[i]=random;
+        }
+    }
     private void btnSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSortActionPerformed
 
     private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
-        // TODO add your handling code here:
+        generate();
+        for (int i=0;i<sortarray.length;i++){
+             System.out.println(sortarray[i]);
+        }
     }//GEN-LAST:event_btnGenerateActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
