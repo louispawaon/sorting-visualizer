@@ -7,6 +7,8 @@ package sorter;
 import java.util.*;
 import java.awt.*;
 import java.math.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author tremor
@@ -116,7 +118,6 @@ public int min = 0;
             random = (int) Math.floor(Math.random()*(max-min+1)+min);
             sortarray[i]=random;
         }
-        graphicsArray.randarray=sortarray;
     }
     
     private void btnSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortActionPerformed
@@ -127,20 +128,43 @@ public int min = 0;
         generate();
         for (int i=0;i<sortarray.length;i++){
              //System.out.println(sortarray[i]);
-        }
-        graphicsArray.recieve();
-       
+        } 
     }//GEN-LAST:event_btnGenerateActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formWindowOpened
+        generate();
+        class graphicsArray extends javax.swing.JPanel{
+            public final int SIZE = 600; //to be changed
+            public int width=SIZE/50; //to be changed
+            public int current = -1; //to be changed
+            public int check = -1; //to be changed
+                //@Override
+                public void arrayDisplay(Graphics g){
+                    Graphics2D graphics = (Graphics2D)g;
+                    super.paintComponent(g);
+                    for(int i = 0; i < sortarray.length; i++) {	//RUNS TROUGH EACH ELEMENT OF THE LIST
+                            int HEIGHT = sortarray[i]*width;	//SETS THE HEIGHT OF THE ELEMENT ON THE GRAPH
 
+                                    g.setColor(Color.white);	//DEFAULT COLOR
+                                    if(current > -1 && i == current) {
+                                            g.setColor(Color.green);	//COLOR OF CURRENT
+                                    }
+                                    if(check > -1 && i == check) {
+                                            g.setColor(Color.red);	//COLOR OF CHECKING
+                                    }
+                                    //DRAWS THE BAR AND THE BLACK OUTLINE
+                                    g.fillRect(i*width, SIZE-HEIGHT, width, HEIGHT);
+                                    g.setColor(Color.black);
+                                    g.drawRect(i*width, SIZE-HEIGHT, width, HEIGHT);   
+            }
+    }
+        }
+    }//GEN-LAST:event_formWindowOpened
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-         graphicsArray xyz = new graphicsArray();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
