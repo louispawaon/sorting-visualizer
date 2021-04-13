@@ -116,6 +116,7 @@ public int min = 0;
             random = (int) Math.floor(Math.random()*(max-min+1)+min);
             sortarray[i]=random;
         }
+        graphicsArray.randarray=sortarray;
     }
     
     private void btnSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortActionPerformed
@@ -125,15 +126,16 @@ public int min = 0;
     private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
         generate();
         for (int i=0;i<sortarray.length;i++){
-             System.out.println(sortarray[i]);
+             //System.out.println(sortarray[i]);
         }
+        graphicsArray.recieve();
        
     }//GEN-LAST:event_btnGenerateActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
-   
+
     /**
      * @param args the command line arguments
      */
