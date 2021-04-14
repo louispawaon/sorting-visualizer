@@ -17,5 +17,6 @@ public class initializer {
     public static void main(String args[]) {
         mainpanel abc = new mainpanel();
         abc.setVisible(true);
+        
     }
 }

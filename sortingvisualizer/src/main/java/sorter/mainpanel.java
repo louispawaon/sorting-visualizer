@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  */
 
 public class mainpanel extends javax.swing.JFrame {
-public int sortarray[] = new int[50];
+public static int sortarray[] = new int[50];
 public int random;
 public int max = sortarray.length+1;
 public int min = 0;
@@ -109,6 +109,8 @@ public int min = 0;
                 .addGap(15, 15, 15))
         );
 
+        panelSort.getAccessibleContext().setAccessibleParent(panelSort);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //Generate Array 
@@ -128,43 +130,58 @@ public int min = 0;
         generate();
         for (int i=0;i<sortarray.length;i++){
              //System.out.println(sortarray[i]);
-        } 
+        }
     }//GEN-LAST:event_btnGenerateActionPerformed
 
+public static class graphicsArrays extends javax.swing.JPanel{
+        /*public final int SIZE = 600; //to be changed
+        public int width=SIZE/50; //to be changed
+        public int current = -1; //to be changed
+        public int check = -1; //to be changed
+            //@Override
+            public void arrayDisplay(Graphics g){
+                Graphics2D graphics = (Graphics2D)g;
+                super.paintComponent(g);
+                for(int i = 0; i < sortarray.length; i++) {	//RUNS TROUGH EACH ELEMENT OF THE LIST
+                        int HEIGHT = sortarray[i]*width;	//SETS THE HEIGHT OF THE ELEMENT ON THE GRAPH
+
+                                g.setColor(Color.white);	//DEFAULT COLOR
+                                if(current > -1 && i == current) {
+                                        g.setColor(Color.green);	//COLOR OF CURRENT
+                                }
+                                if(check > -1 && i == check) {
+                                        g.setColor(Color.red);	//COLOR OF CHECKING
+                                }
+                                //DRAWS THE BAR AND THE BLACK OUTLINE
+                                g.fillRect(i*width, SIZE-HEIGHT, width, HEIGHT);
+                                g.setColor(Color.black);
+                                g.drawRect(i*width, SIZE-HEIGHT, width, HEIGHT);   
+        }
+}*/
+    public void paint(Graphics g) {
+		g.drawString("Hello",40,40);
+		setBackground(Color.WHITE);
+		g.fillRect(130, 30,100, 80);
+		g.drawOval(30,130,50, 60);
+		setForeground(Color.RED);
+		g.fillOval(130,130,50, 60);
+		g.drawArc(30, 200, 40,50,90,60);
+		g.fillArc(30, 130, 40,50,180,40);
+		
+	}
+    }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         generate();
-        class graphicsArray extends javax.swing.JPanel{
-            public final int SIZE = 600; //to be changed
-            public int width=SIZE/50; //to be changed
-            public int current = -1; //to be changed
-            public int check = -1; //to be changed
-                //@Override
-                public void arrayDisplay(Graphics g){
-                    Graphics2D graphics = (Graphics2D)g;
-                    super.paintComponent(g);
-                    for(int i = 0; i < sortarray.length; i++) {	//RUNS TROUGH EACH ELEMENT OF THE LIST
-                            int HEIGHT = sortarray[i]*width;	//SETS THE HEIGHT OF THE ELEMENT ON THE GRAPH
-
-                                    g.setColor(Color.white);	//DEFAULT COLOR
-                                    if(current > -1 && i == current) {
-                                            g.setColor(Color.green);	//COLOR OF CURRENT
-                                    }
-                                    if(check > -1 && i == check) {
-                                            g.setColor(Color.red);	//COLOR OF CHECKING
-                                    }
-                                    //DRAWS THE BAR AND THE BLACK OUTLINE
-                                    g.fillRect(i*width, SIZE-HEIGHT, width, HEIGHT);
-                                    g.setColor(Color.black);
-                                    g.drawRect(i*width, SIZE-HEIGHT, width, HEIGHT);   
-            }
-    }
-        }
+       
     }//GEN-LAST:event_formWindowOpened
     
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        graphicsArrays graphicz = new graphicsArrays();
+        graphicz.setVisible(true);
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
