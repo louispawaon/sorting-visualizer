@@ -5,12 +5,9 @@
  */
 package sorter;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
-import java.util.Random;
+import java.awt.*;
+import java.util.*;
+import javax.swing.JButton;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,13 +18,19 @@ import javax.swing.SwingWorker;
  * @author tremor
  */
 public class mainpanel2 extends javax.swing.JPanel {
-    private static final long serialVersionUID = 1L;
+        private static final long serialVersionUID = 1L;
 	private final int WIDTH = 1000, HEIGHT = WIDTH * 9 / 16;
 	private final int SIZE = 200;
 	private final float BAR_WIDTH = (float)WIDTH / SIZE;
 	private float[] bar_height = new float[SIZE];
 	private SwingWorker<Void, Void> shuffler, sorter;
 	private int current_index, traversing_index;
+        private static JButton btnGenerate;
+
+    @Override
+    public Dimension preferredSize() {
+        return super.preferredSize(); //To change body of generated methods, choose Tools | Templates.
+    }
 
     /**
      * Creates new form mainpanel2
@@ -48,6 +51,8 @@ public class mainpanel2 extends javax.swing.JPanel {
 		g.fillArc(30, 130, 40,50,180,40);
 		
 	}
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,31 +62,20 @@ public class mainpanel2 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnGenerate = new javax.swing.JButton();
-
-        btnGenerate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btnGenerate.setText("GENERATE ");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(801, Short.MAX_VALUE))
+            .addGap(0, 951, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(488, Short.MAX_VALUE)
-                .addComponent(btnGenerate)
-                .addGap(23, 23, 23))
+            .addGap(0, 543, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String[] args){
-        SwingUtilities.invokeLater(() -> {
+        //SwingUtilities.invokeLater(() -> {
 			JFrame frame = new JFrame("Insertion Sort Visualizer");
 			frame.setResizable(false);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,9 +84,9 @@ public class mainpanel2 extends javax.swing.JPanel {
 			frame.pack();
 			frame.setLocationRelativeTo(null);
 			frame.setVisible(true);
-		});
+                        btnGenerate = new JButton("Generate");
+		//});
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGenerate;
     // End of variables declaration//GEN-END:variables
 }
