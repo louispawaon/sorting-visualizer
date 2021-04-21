@@ -49,7 +49,7 @@ public class mainpanel2 extends javax.swing.JPanel {
 		g.fillOval(130,130,50, 60);
 		g.drawArc(30, 200, 40,50,90,60);
 		g.fillArc(30, 130, 40,50,180,40);
-		
+
 	}
     
    
@@ -66,11 +66,11 @@ public class mainpanel2 extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 951, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 543, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
